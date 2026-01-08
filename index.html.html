@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rak& Rey | Premier Event Management & Planning</title>
+    <meta name="description" content="Lumina Events - We create unforgettable experiences. From corporate galas to dream weddings, we manage every detail.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            /* Colors */
+            --primary-color: #2c3e50; /* Deep Navy */
+            --secondary-color: #d4af37; /* Gold/Brass */
+            --accent-color: #e74c3c; /* Vibrant Red for CTAs */
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --border-color: #e0e0e0;
+            
+            /* Spacing */
+            --container-width: 1200px;
+            --section-padding: 80px 0;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+
+        .btn-accent {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .btn-accent:hover {
+            background-color: #b5952f;
+            color: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header .subtitle {
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.6)), url('https://picsum.photos/seed/eventparty/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* --- About Section --- */
+        #about {
+            padding: var(--section-padding);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .experience-badge .years {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- Services Section --- */
+        #services {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- Process Section --- */
+        #process {
+            padding: var(--section-padding);
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        #process .section-header h2 {
+            color: #fff;
+        }
+        
+        #process .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Connecting line */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(255,255,255,0.2);
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            border: 5px solid var(--secondary-color);
+        }
+
+        .step h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        /* --- Portfolio Section --- */
+        #portfolio {
+            padding: var(--section-padding);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 300px;
+            group: cursor;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-info h4 {
+            color: #fff;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+
+        .portfolio-info span {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Pricing --- */
+        #pricing {
+            padding: var(--section-padding);
+            background-color: var(--bg-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .price-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .price-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--secondary-color);
+            z-index: 2;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .price-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .price-features {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-weight: 700;
+        }
+
+        /* --- Testimonials --- */
+        #testimonials {
+            padding: var(--section-padding);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-color: #fff;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .stars {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .client-details h5 {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .client-details span {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* --- Contact --- */
+        #contact {
+            padding: var(--section-padding);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .contact-info {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .info-text h5 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .info-text p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            padding: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a252f;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.6);
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Media Queries --- */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                max-width: 600px;
+                margin: 0 auto;
+                grid-template-columns: 1fr;
+            }
+            .price-card.popular {
+                transform: scale(1);
+            }
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .process-steps::before {
+                width: 2px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+            }
+            .step-number {
+                background-color: var(--secondary-color);
+                color: #fff;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .stats-row {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .contact-info, .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">RAK & Rey<span>.</span></a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact" class="btn btn-accent" style="padding: 8px 20px; color: #fff;">Book Now</a></li>
+                </ul>
+                <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container hero-content">
+                <h1>Creating Moments That Last Forever</h1>
+                <p>From intimate gatherings to grand corporate galas, Lumina Events brings your vision to life with precision, creativity, and elegance.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-accent">Start Planning</a>
+                    <a href="#portfolio" class="btn btn-outline">View Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/eventplanner/600/700" alt="Event Planning Team">
+                        <div class="experience-badge">
+                            <span class="years">12+</span>
+                            <span class="text">Years of<br>Experience</span>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <span class="section-header" style="text-align: left; margin: 0 0 20px 0;">
+                            <span class="subtitle">Who We Are</span>
+                        </span>
+                        <h3>We Turn Your Dreams Into Reality</h3>
+                        <p>At Lumina Events, we believe that every event tells a story. Founded in 2012, our dedicated team of planners, designers, and coordinators work tirelessly to ensure every detail is perfect. We don't just manage events; we curate experiences that leave a lasting impression.</p>
+                        <p>Whether it's a destination wedding, a product launch, or a private party, our approach is personalized to fit your unique style and budget.</p>
+                        
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <h4>500+</h4>
+                                <p>Events Managed</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>50+</h4>
+                                <p>Expert Planners</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>100%</h4>
+                                <p>Client Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">What We Do</span>
+                    <h2>Our Premium Services</h2>
+                    <p>We offer a comprehensive range of event management services tailored to your specific needs.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="icon-box">💍</div>
+                        <h3>Wedding Planning</h3>
+                        <p>From the engagement party to the big day, we handle venue selection, decor, catering, and logistics for your perfect wedding.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-box">🏢</div>
+                        <h3>Corporate Events</h3>
+                        <p>Professional management for conferences, seminars, product launches, and year-end galas that reflect your brand identity.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-box">🥂</div>
+                        <h3>Social Parties</h3>
+                        <p>Birthday bashes, anniversaries, and private dinners. We bring the fun and style so you can enjoy the party.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-box">🎓</div>
+                        <h3>Award Ceremonies</h3>
+                        <p>Formal and meticulously organized award nights with stage design, lighting, and audio-visual coordination.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-box">🎨</div>
+                        <h3>Decor & Design</h3>
+                        <p>Creative floral arrangements, stage setup, lighting design, and thematic styling to transform any space.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-box">🎤</div>
+                        <h3>Entertainment</h3>
+                        <p>Booking top-tier DJs, live bands, speakers, and performers to keep your guests entertained.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">How It Works</span>
+                    <h2>Our Planning Process</h2>
+                    <p style="color: rgba(255,255,255,0.7);">A simple, transparent, and effective workflow to ensure success.</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Consultation</h4>
+                        <p>We meet to discuss your vision, budget, and requirements to understand your goals.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Design & Plan</h4>
+                        <p>We create a detailed blueprint, select vendors, and design the theme for your event.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Execution</h4>
+                        <p>Our team manages the setup, coordination, and flow of the event on the big day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Our Work</span>
+                    <h2>Featured Events</h2>
+                    <p>A glimpse into the magical moments we have created for our clients.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/wedding1/500/400" alt="Wedding">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span>Wedding</span>
+                                <h4>Rose Garden Ceremony</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/corporate1/500/400" alt="Corporate">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span>Corporate</span>
+                                <h4>Tech Summit 2023</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/party1/500/400" alt="Party">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span>Private Party</span>
+                                <h4>Neon Birthday Bash</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/gala1/500/400" alt="Gala">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span>Charity Gala</span>
+                                <h4>Midnight Charity Ball</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/concert1/500/400" alt="Concert">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span>Concert</span>
+                                <h4>Summer Jazz Night</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/exhibition1/500/400" alt="Exhibition">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span>Exhibition</span>
+                                <h4>Modern Art Expo</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Packages</span>
+                    <h2>Transparent Pricing</h2>
+                    <p>Choose a package that suits your needs or contact us for a custom quote.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h3>Silver</h3>
+                            <div class="price">$1,500<span>/event</span></div>
+                        </div>
+                        <ul class="price-features">
+                            <li>Day-of Coordination</li>
+                            <li>Timeline Creation</li>
+                            <li>Vendor Liaison</li>
+                            <li>Up to 100 Guests</li>
+                            <li style="opacity: 0.5;">Decor Design</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Choose Silver</a>
+                    </div>
+                    <div class="price-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="price-header">
+                            <h3>Gold</h3>
+                            <div class="price">$3,500<span>/event</span></div>
+                        </div>
+                        <ul class="price-features">
+                            <li>Full Event Planning</li>
+                            <li>Budget Management</li>
+                            <li>Vendor Selection</li>
+                            <li>Up to 300 Guests</li>
+                            <li>Theme & Decor Concept</li>
+                            <li>Rehearsal Coordination</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-accent">Choose Gold</a>
+                    </div>
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h3>Platinum</h3>
+                            <div class="price">$7,000+<span>/event</span></div>
+                        </div>
+                        <ul class="price-features">
+                            <li>Complete "Turn-Key" Service</li>
+                            <li>VIP Guest Management</li>
+                            <li>Custom Fabrication</li>
+                            <li>Unlimited Guest Count</li>
+                            <li>Full-Service Design</li>
+                            <li>Travel Coordination</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Choose Platinum</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Testimonials</span>
+                    <h2>What Our Clients Say</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Lumina Events made our wedding absolutely magical. Every detail was perfect, and we didn't have to stress about a single thing. Highly recommended!"</p>
+                        <div class="client-info">
+                            <img src="https://picsum.photos/seed/face1/100/100" alt="Client" class="client-avatar">
+                            <div class="client-details">
+                                <h5>Sarah & James</h5>
+                                <span>Wedding Clients</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Professional, efficient, and incredibly creative. They handled our annual corporate summit with ease, and our attendees were blown away by the production quality."</p>
+                        <div class="client-info">
+                            <img src="https://picsum.photos/seed/face2/100/100" alt="Client" class="client-avatar">
+                            <div class="client-details">
+                                <h5>Michael Ross</h5>
+                                <span>CEO, TechStart Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"I hired Lumina for my 50th birthday party. The decor, the music, and the flow of the evening were perfect. It was a night to remember!"</p>
+                        <div class="client-info">
+                            <img src="https://picsum.photos/seed/face3/100/100" alt="Client" class="client-avatar">
+                            <div class="client-details">
+                                <h5>Emily Chen</h5>
+                                <span>Private Party</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p style="margin-bottom: 30px; opacity: 0.9;">Ready to start planning your dream event? Fill out the form or contact us directly. We'd love to hear from you.</p>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-text">
+                                <h5>Our Office</h5>
+                                <p>123 Event Plaza, Suite 400<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-text">
+                                <h5>Phone</h5>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-text">
+                                <h5>Email</h5>
+                                <p>hello@luminaevents.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3 style="margin-bottom: 20px; color: var(--primary-color);">Request a Quote</h3>
+                        <form onsubmit="event.preventDefault(); alert('Thank you! Your request has been received. We will contact you shortly.');">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Event Type</label>
+                                <select id="type" class="form-control">
+                                    <option>Wedding</option>
+                                    <option>Corporate Event</option>
+                                    <option>Social Party</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Tell us about your event</label>
+                                <textarea id="message" class="form-control" placeholder="Date, guest count, theme ideas, etc."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent" style="width: 100%;">Send Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo" style="color: #fff;">Lumina<span>.</span></a>
+                    <p>We are a full-service event planning company dedicated to creating memorable experiences tailored to your unique vision.</p>
+                    <div class="social-links">
+                        <a href="#">F</a>
+                        <a href="#">T</a>
+                        <a href="#">I</a>
+                        <a href="#">L</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Weddings</a></li>
+                        <li><a href="#">Corporate</a></li>
+                        <li><a href="#">Parties</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 15px; font-size: 0.9rem;">Subscribe to get the latest news and tips.</p>
+                    <form onsubmit="event.preventDefault();" style="display: flex;">
+                        <input type="email" placeholder="Email" style="padding: 10px; border: none; width: 100%; border-radius: 4px 0 0 4px;">
+                        <button type="submit" style="padding: 10px 15px; background: var(--secondary-color); border: none; color: white; border-radius: 0 4px 4px 0; cursor: pointer;">→</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lumina Events Management. All Rights Reserved. Designed for Excellence.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Mobile Menu Script -->
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
