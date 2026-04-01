@@ -1,2 +1,2 @@
-file:///C:/Users/prade/OneDrive/Attachments/Desktop/face%20prep/WEB%20PROJECTS/event%20management.html
+ https://pradeepa1310.github.io/Event-management/
 event mangament  website  (Rak and Rey)
